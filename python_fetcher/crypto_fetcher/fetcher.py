@@ -17,7 +17,7 @@ def fetch_top_10_cryptos(gcs_bucket: str, output_prefix: str = "raw/") -> None:
     response.raise_for_status()
     data = response.json()
 
-    timestamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    timestamp = datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
     filename = f"{output_prefix}crypto_prices_{timestamp}.json"
 
     # Save to GCS
